@@ -8,7 +8,7 @@ app.use(cookieParser())
 require('dotenv').config()
 app.use(express.json());
 
-app.use('/addtodrive',require('./docApi/addtoDrive'))
+// app.use('/addtodrive',require('./docApi/addtoDrive'))
 
 app.use(cors({
     origin: ['http://localhost:3000', 'https://community-ledger.web.app'],
