@@ -4,7 +4,6 @@ require('dotenv').config()
 const { sheets } = require('../firestore');
 const spreadsheetId = process.env.MISC_ID;
 router.get('/',async(req,res)=>{
-    console.log(req.query)
 
     try{
         const response = await sheets.spreadsheets.get({
@@ -30,8 +29,7 @@ router.get('/',async(req,res)=>{
                 },
               };
                     try{
-                        const response = await sheets.spreadsheets.batchUpdate(request);
-                        console.log(response.data);
+                       await sheets.spreadsheets.batchUpdate(request);
                         return res.status(200).json({status:'success'})
                     }catch(err){
                         console.log(err)
