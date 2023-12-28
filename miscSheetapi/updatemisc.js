@@ -11,7 +11,6 @@ router.get('/', async (req, res) => {
     const debit = parseInt(req.query.debit)
     const credit = parseInt(req.query.credit)
     const id = parseInt(req.query.id)
-    console.log(req.query)
     let dDate = req.query.date;
     if (ledgerName == null) res.sendStatus(500);
     let type;

@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     const rate2 = req.query.Rate2;
     const etDueDateRate1 = req.query.etDueDateRate1;
     const etDueDateRate2 = req.query.etDueDateRate2;
-    const formattedDate = dayjs(new Date()).format('MM/DD/YYYY HH:mm:ss');
+    const formattedDate = dayjs(new Date()).format('DD/MM/YYYY');
         const range = `${sheetName}!A:J`
         const values = [[slNo,houseNo,name,address,region,whatsApp,rate1,rate2,etDueDateRate1,formattedDate,etDueDateRate2,formattedDate,
             `=IFERROR(INDIRECT("Y" & ROW()), 0) `,`=IFERROR(INDIRECT("Z" & ROW()), 0)`,`=(INDIRECT("M" & ROW())) * (INDIRECT("G" & ROW()))`,

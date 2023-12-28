@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     const etCreditBill = req.query.etCreditBill;
     const etCreditDate = req.query.etCreditDate;
     const ledgerName = req.query.ledgerName;
-
+    console.log(etCreditDate)
     let promises = [];
     let sheetsToUpdate = [];
     let particulars = [];
@@ -18,20 +18,18 @@ router.get('/', async (req, res) => {
     if (ledgerName == 'Masjid' && etCreditAmount > 0) {
         sheetsToUpdate = [
             {name : 'CashRegister', range: 'CashRegister!A:J' }, // Update for the first sheet (adjust range)
-            { range: 'MasjidCashBook!A:J' }, // Update for the second sheet (adjust range)
-            { range: 'MasjidCreditTransctions!A:J' }, // Update for the second sheet (adjust range)
+            { range: 'MasjidCashBook!A:J' }, // Update for the second sheet (adjust range) 
             // Add more sheets as needed...
         ];
-        particulars = ['On Credit entry of ', etCreditPart, ' in the Ledger of Madrasa'];
+        particulars = ['On Credit entry of ', etCreditPart, ' in the Ledger of Masjid'];
 
     } else if (ledgerName == 'Madrasa' && etCreditAmount > 0) {
          sheetsToUpdate = [
             {name : 'CashRegister', range: 'CashRegister!A:J' }, // Update for the first sheet (adjust range)
             { range: 'MadrasaCashBook!A:J' }, // Update for the second sheet (adjust range)
-            { range: 'MadrasaCreditTransctions!A:J' }, // Update for the second sheet (adjust range)
             // Add more sheets as needed...
         ];
-        particulars = ['On Credit entry of ', etCreditPart, ' in the Ledger of Masjid'];
+        particulars = ['On Credit entry of ', etCreditPart, ' in the Ledger of Madrasa'];
     } else if (ledgerName == 'Dars' && etCreditAmount > 0){
         sheetsToUpdate = [
             {name : 'CashRegister', range: 'CashRegister!A:J' }, // Update for the first sheet (adjust range)

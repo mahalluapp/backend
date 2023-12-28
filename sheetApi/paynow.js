@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
     // console.log(req.query)
     const idToFind = req.query.id ;
     const rowIndex = parseInt(idToFind) + 1;
-    const formattedDate = dayjs(new Date()).tz('Asia/Kolkata').format('MM/DD/YYYY HH:mm:ss');
+    const formattedDate = dayjs(new Date()).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss'); // od MM/DD
     const newValues = [
         [`${NewFromDueDate1}`, null, `${NewFromDueDate2}`,
             null, null, null, null, null, null, `${PaidMonthsRate1}`,

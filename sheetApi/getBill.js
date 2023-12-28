@@ -29,8 +29,8 @@ router.get('/', async (req, res) => {
 
     // console.log(fromDate, toDate)
     try {
-        const start = dayjs(date1, 'MM/DD/YYYY')
-        const end = dayjs(date2, 'MM/DD/YYYY')
+        const start = dayjs(date1, 'DD/MM/YYYY')
+        const end = dayjs(date2, 'DD/MM/YYYY')
         const range = `${sheetName}!A2:J`; // Adjust the range as needed
         const sheetData = await sheets.spreadsheets.values.get({
             spreadsheetId,
@@ -40,7 +40,7 @@ router.get('/', async (req, res) => {
         let rowData = [];
         const index = [];
         data.forEach((row,i) => {
-            const rowDate = dayjs(row[4], 'MM/DD/YYYY');
+            const rowDate = dayjs(row[4],'DD/MM/YYYY HH:mm:ss');
             if (rowDate.isValid() ) {
                 if(start.isSameOrBefore(rowDate, 'day') && end.isSameOrAfter(rowDate, 'day')){
                     index.push(i)
