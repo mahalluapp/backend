@@ -11,7 +11,7 @@ app.use(express.json());
 // app.use('/addtodrive',require('./docApi/addtoDrive'))
 
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://community-ledger.web.app'],
+    origin: ['http://localhost:3000', 'https://kcpmahallu.web.app'],
     optionsSuccessStatus: 200,
     credentials: true,
     methods: "GET,POST,OPTIONS",
