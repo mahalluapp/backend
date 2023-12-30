@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
             // { range: 'MasjidDebitTransctions!A:J' }, // Update for the second sheet (adjust range)
             // Add more sheets as needed...
         ];
-        particulars = ['On Debit entry of ', etDebitPart, ' in the Ledger of Madrasa'];
+        particulars = ['On Debit entry of ', etDebitPart, ' in the Ledger of Masjid'];
 
     } else if (ledgerName == 'Madrasa' && etDebitAmount > 0) {
          sheetsToUpdate = [
@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
             // { range: 'MadrasaDebitTransctions!A:J' }, // Update for the second sheet (adjust range)
             // Add more sheets as needed...
         ];
-        particulars = ['On Debit entry of ', etDebitPart, ' in the Ledger of Masjid'];
+        particulars = ['On Debit entry of ', etDebitPart, ' in the Ledger of Madrasa'];
     } else if (ledgerName == 'Dars' && etDebitAmount > 0){
         sheetsToUpdate = [
             {name : 'CashRegister', range: 'CashRegister!A:J' }, // Update for the first sheet (adjust range)
