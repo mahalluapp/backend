@@ -21,7 +21,8 @@ router.get('/', async (req, res) => {
         const range = `${sheetName}!A:J`
         const values = [[slNo,houseNo,name,address,region,whatsApp,rate1,rate2,etDueDateRate1,formattedDate,etDueDateRate2,formattedDate,
             `=IFERROR(INDIRECT("Y" & ROW()), 0) `,`=IFERROR(INDIRECT("Z" & ROW()), 0)`,`=(INDIRECT("M" & ROW())) * (INDIRECT("G" & ROW()))`,
-            `=(INDIRECT("N" & ROW())) * (INDIRECT("H" & ROW()))`,`=(INDIRECT("O" & ROW())) + (INDIRECT("P" & ROW()))`,,,,,,,,`=DATEDIF(INDIRECT("I" & ROW()), INDIRECT("J" & ROW()), "M")`,`=DATEDIF(INDIRECT("K" & ROW()), INDIRECT("L" & ROW()), "M")`,`=ROW()-1`]]
+            `=(INDIRECT("N" & ROW())) * (INDIRECT("H" & ROW()))`,`=(INDIRECT("O" & ROW())) + (INDIRECT("P" & ROW()))`,,,,,,,,`=MAX((YEAR(INDIRECT("J" & ROW())) - YEAR(INDIRECT("I" & ROW()))) * 12 + MONTH(INDIRECT("J" & ROW())) - MONTH(INDIRECT("I" & ROW())),0)`,
+            `=MAX((YEAR(INDIRECT("L" & ROW())) - YEAR(INDIRECT("K" & ROW()))) * 12 + MONTH(INDIRECT("L" & ROW())) - MONTH(INDIRECT("K" & ROW())),0)`]]
     try {
         const response = await sheets.spreadsheets.values.append({
             spreadsheetId: spreadsheetId,
